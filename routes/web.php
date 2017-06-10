@@ -31,7 +31,7 @@
 
 Route::get('coba','CobaController@test');
 
-Route::get('coba2/{id}','CobaController@test2');
+Route::get('coba2/{nama}','CobaController@test2');
 
 Route::get('coba3','CobaController@index');
 
@@ -40,3 +40,7 @@ Route::get('coba4','CobaController@test3');
 Route::get('coba5','CobaController@test4');
 
 Route::get('test/{id}','CobaController@binatang');
+
+Route::get('coba1','CobaController@test1');
+
+Route::resource('post','PostController');

@@ -14,9 +14,15 @@ class CobaController extends Controller
     	return $a;
     }
 
-    public function test2 ($id)
+        public function test1 ($nama)
     {
-    	$b=coba::find($id);
+        $t=coba::where('nama','like','%Taupik%')->get();
+        return $t;
+    }
+
+    public function test2 ($nama)
+    {
+    	$b=coba::where('nama','like',$nama)-> orwhere('jurusan','like',$nama)->get();
     	return $b;
     }
 
@@ -40,7 +46,9 @@ class CobaController extends Controller
 
     public function binatang ($id)
     {
-    	$data=['binatang'=>['Monyet','Harimau','Singa','Kucing','Kambing'], 'kendaraan'=>['Mobil','Motor','Sepedah','Bajai','Beca'], 'laptop'=>['Asus','Samsung','HP','Apple','Lenovo']];
+    	$data=['binatang'=>['Monyet','Harimau','Singa','Kucing','Kambing'],
+                'kendaraan'=>['Mobil','Motor','Sepedah','Bajai','Beca'], 
+                'laptop'=>['Asus','Samsung','HP','Apple','Lenovo']];
         $ahaha=$data[$id];
     	return view('binatang', compact('ahaha'));
     }
